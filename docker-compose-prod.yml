@@ -2,10 +2,17 @@
 version: '3.0'
 services:
   web:
+    image: "emkacafe/io-lab-docker-ci-public:latest"
+    ports:
+        - 80:5000
     # TODO: image, ports and redis dependency
     environment:
       REDIS_HOST: redis
       REDIS_PORT: 6379
   redis:
     image: redis:6.0-rc3
+    volumes:
+        - "redis-data:/data"
     # TODO: persistence for redis. You need to persist /data directory.
+volumes:
+    redis-data:
