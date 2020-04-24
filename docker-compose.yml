@@ -5,10 +5,12 @@ services:
     build:
         .
     ports:
-        - 5000:5000
-    # TODO: build context, ports and redis dependency
+        - "5000:5000"
+    depends_on:
+        - redis
     volumes:
       - .:/code
+    # TODO: build context, ports and redis dependency
     environment:
       # Makes flask to reload code on change
       FLASK_ENV: development
@@ -18,5 +20,7 @@ services:
     image: redis:6.0-rc4-alpine
     # TODO: missing persistence for redis. You need to persist /data directory.
     volumes:
-        - .:/data
+        - "redis-data:/data"
+volumes:
+    redis-data:
 
