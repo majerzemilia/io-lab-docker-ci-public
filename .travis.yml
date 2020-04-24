@@ -6,6 +6,7 @@ services:
 script:
 - make image
 
+
 before_deploy:
 - docker login -u $DOCKER_USER -p $DOCKER_PASS
 
