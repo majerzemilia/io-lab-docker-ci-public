@@ -15,4 +15,4 @@ services:
         - "redis-data:/data"
     # TODO: persistence for redis. You need to persist /data directory.
 volumes:
-    redis-data:
+  redis-data:
